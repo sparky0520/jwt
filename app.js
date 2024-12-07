@@ -4,7 +4,9 @@ const app = express();
 const authRoutes = require("./routes/auth");
 const protectedRoutes = require("./routes/protectedRoutes");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
+app.use(cookieParser());
 app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/protected", protectedRoutes);

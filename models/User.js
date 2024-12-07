@@ -3,7 +3,7 @@ const { isEmail, isStrongPassword } = require("validator");
 // enum title {Apprentice, Journeyman, Master}
 
 const userSchema = new mongoose.Schema({
-  username: {
+  email: {
     type: String,
     required: true,
     unique: true,
@@ -31,19 +31,6 @@ const userSchema = new mongoose.Schema({
       message:
         "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
     },
-  },
-  title: {
-    type: String,
-    default: "Apprentice",
-  },
-  ctfs: {
-    type: [
-      {
-        name: { type: String, required: true, unique: true },
-        flags: { type: [String], default: [] },
-      },
-    ],
-    default: [],
   },
 });
 
